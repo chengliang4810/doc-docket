@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.layjava.solon.docs</groupId>
+    <artifactId>doc-docket</artifactId>
+    <version>1.0.0</version>
+    
+    <packaging>jar</packaging>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>该项目用于根据配置文件自动注入DocDocket对象</description>
+    <url>https://github.com/chengliang4810/doc-docket.git</url>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <solon.version>2.7.6-M1</solon.version>
+        <lombok.version>1.18.30</lombok.version>
+        <hutool.version>5.8.27</hutool.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <name>chengliang4810</name>
+            <email>chengliang4810@163.com</email>
+            <organization>Layjava</organization>
+            <organizationUrl>http://layjava.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/chengliang4810/doc-docket.git</connection>
+        <developerConnection>scm:git:ssh://github.com:chengliang4810/doc-docket.git</developerConnection>
+        <url>https://github.com/chengliang4810/doc-docket/tree/master</url>
+    </scm>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.noear</groupId>
+            <artifactId>solon-docs-openapi2-javadoc</artifactId>
+            <version>${solon.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.noear</groupId>
+            <artifactId>solon-test</artifactId>
+            <version>${solon.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.noear</groupId>
+            <artifactId>solon-api</artifactId>
+            <version>${solon.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.noear</groupId>
+                <artifactId>solon-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <repositories>		
+        <repository>
+			<id>tencent</id>
+			<url>https://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+    </repositories>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+</project>
