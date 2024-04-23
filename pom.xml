@@ -51,6 +51,7 @@
             <groupId>org.noear</groupId>
             <artifactId>solon.docs</artifactId>
             <version>${solon.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
